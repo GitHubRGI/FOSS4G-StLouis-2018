@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        // Version variables
+        kotlinVersion = '1.2.41'
+        releaseVersion = '1.0.0.0'
+    }
+    repositories {
+        // Places to find dependencies
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        // We need this to build kotlin with Gradle
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        // Creates a shadow jar
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+    }
+}
+
+plugins {
+    // Lints our build files
+    id 'nebula.lint' version '8.3.1'
+}
+
+apply plugin: 'kotlin-platform-common'
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+dependencies {
+    // Kotlin standard library is needed for multiplatform files
+    // in the source directory of the project root
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"
+}

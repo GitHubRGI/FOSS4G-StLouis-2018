@@ -1,0 +1,7 @@
+apply plugin:  'kotlin-platform-js'
+
+dependencies {
+    expectedBy project(":")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlinVersion"
+}

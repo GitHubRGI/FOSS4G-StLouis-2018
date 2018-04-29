@@ -1,0 +1,23 @@
+apply plugin: 'kotlin-platform-jvm'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+shadowJar {
+    version = "$releaseVersion"
+    baseName = "foss4g-stlouis-2018"
+    classifier = null
+}
+
+dependencies {
+    expectedBy project(":")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    // Test dependencies
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+
+    shadow 'junit:junit:3.8.2'
+}
+
+build.dependsOn shadowJar

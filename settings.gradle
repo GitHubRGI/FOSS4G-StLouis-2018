@@ -1,0 +1,3 @@
+rootProject.name = 'foss4g-stlouis-2018'
+
+include 'kotlin-gis-jvm', 'kotlin-gis-js'
