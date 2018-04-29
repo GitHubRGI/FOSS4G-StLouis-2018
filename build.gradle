@@ -8,12 +8,16 @@ buildscript {
         // Places to find dependencies
         mavenCentral()
         jcenter()
+        google()
     }
     dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
         // We need this to build kotlin with Gradle
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         // Creates a shadow jar
         classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+        classpath "com.android.tools.build:gradle:3.1.0"
+
     }
 }
 
@@ -28,6 +32,7 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        google()
     }
 }
 
